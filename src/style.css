@@ -1,79 +1,186 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+header.sticky-top {
+	margin-bottom: 20px;
+}
+.logo {
+	width: 50px;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.carousel-item {
+	transition: transform 1.5s ease-in-out, opacity 0.5s ease-out;
+	height: 50vh;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+	background-color: #000;
+	background-size: 70%;
+	border-radius: 50%;
+}
+.carousel-dark .carousel-indicators [data-bs-target] {
+	background-color: #fff;
+	height: 5px;
+}
+.carousel-indicators .active {
+	background-color: #000 !important;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+section {
+	scroll-margin-top: 98px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.cart-btn {
+	width: 30px;
+	height: 30px;
+	background-image: url(../images/cart-icon.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 1.2rem;
+	/* border: 1px solid #000; */
+	background-color: #e7d37f;
+	border: none;
 }
-button:hover {
-  border-color: #646cff;
+
+.cart-btn:hover {
+	background-color: #fd9b63;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.cart-btn:active {
+	background-color: #81a263 !important;
+}
+
+.card-body {
+	display: flex;
+	flex-direction: column;
+}
+
+.card-text-description {
+	-webkit-line-clamp: 3;
+	line-clamp: 3;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	flex-grow: 1;
+}
+
+.vh-30 {
+	height: 30vh;
+}
+
+.logo-link-footer {
+	width: 9rem;
+	height: 9rem;
+	& .logo-img-footer {
+		width: 100%;
+		height: 100%;
+		transition: filter 0.5s;
+		&:hover {
+			filter: drop-shadow(-3px 6px 3px #333);
+		}
+	}
+}
+
+#despre-noi {
+	margin-top: 15rem;
+
+	& a {
+		text-decoration: none;
+	}
+
+	& a:hover {
+		color: #81a263 !important;
+	}
+}
+
+.nav-link {
+	font-size: 1.5rem;
 }
 
 .card {
-  padding: 2em;
+	transition: box-shadow 0.5s;
+
+	&:hover {
+		box-shadow: 0px 0px 36px 9px rgba(10, 116, 14, 0.3);
+	}
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.modal-img {
+	max-height: 50vh;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+#cart-link {
+	padding: 0.5rem;
+	border-radius: 0.2rem;
+	transition: background-color 0.7s;
+	gap: 0.31rem;
+
+	& #cart-icon {
+		width: 2rem;
+		height: 2rem;
+		background-color: #6c757d;
+		mask: url(/src/images/cart-icon.png) no-repeat center / contain;
+		-webkit-mask: url(/src/images/cart-icon.png) no-repeat center / contain;
+		transition: background-color 0.7s;
+	}
+
+	& span {
+		width: fit-content;
+		height: fit-content;
+	}
+
+	&:hover {
+		background-color: #ffffff26;
+
+		& #cart-icon {
+			background-color: #fd9b63;
+		}
+	}
+}
+
+.cantitatea > .btn {
+	background-color: #22222230;
+	border-radius: 50%;
+	width: 1.7rem;
+	height: 1.7rem;
+	padding: 3px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.7s;
+
+	&:hover {
+		background-color: #fd9b63;
+	}
+}
+
+.card-body:has(> .delete) {
+	align-items: center;
+}
+
+.delete {
+	width: 30px;
+	height: 30px;
+	padding: 3px;
+	border: none;
+
+	background-color: #222222e3;
+	mask: url(/src/images/garbage.svg) no-repeat center / contain;
+	-webkit-mask: url(/src/images/garbage.svg) no-repeat center / contain;
+
+	transition: background-color 0.5s;
+
+	&:hover {
+		background-color: #fd9b63;
+	}
+}
+
+.cart-pret {
+	display: flex;
+	text-align: center;
+
+	& .cantitatea {
+		justify-content: center;
+		flex-direction: row;
+		padding-left: 0;
+		padding-right: 0;
+		gap: 0.4rem;
+	}
 }
